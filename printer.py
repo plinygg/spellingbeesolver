@@ -27,9 +27,10 @@ while True:
             alphabet.remove(input2.lower())
             counter += 1
         print(alphabet)
+        spare = []
         for word in words:
-            for letter_left in alphabet:
-                if letter_left in word:
-                    words.remove(word)
-                    #print(word)
+            if all(letter_left not in word for letter_left in alphabet):
+                spare.append(word)
+                #print(word)
+        words = spare
         print(words)
